@@ -1,12 +1,25 @@
 package main
 
-import "fmt"
+import ( 
+	"fmt"
+	"bufio"
+	"os"
+	"strconv"
+)
 
-var choice int
-var firstNumber float64
-var secondNumber float64
+func numbersInput() {
+	var firstNumber float64
+	var secondNumber float64
+	fmt.Print("Write a number: ")
+	fmt.Scanln(&firstNumber)
+
+	fmt.Print("Write one more number: ")
+	fmt.Scanln(&secondNumber)
+	
+}
 
 func main() {
+	var choice int
 	fmt.Print(`Welcome in the calculator: 
 	Press (1) to do addition 
 	Press (2) to do subtraction
@@ -16,10 +29,10 @@ func main() {
 	Press (6) to go out of the program
 	Please choose one of the options: `)
 	fmt.Scanln(&choice)
-	input()
+	input(choice)
 }
 
-func input() {
+func input(choice int) {
 	switch choice {
 	case 1:
 		addition()
@@ -41,11 +54,7 @@ func input() {
 
 func addition() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
+	numbersInput()
 
 	fmt.Println("Here is a addition: ", firstNumber+secondNumber)
 	main()
