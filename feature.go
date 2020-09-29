@@ -7,11 +7,8 @@ import (
 
 func modulo() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
 	answer := math.Mod(firstNumber, secondNumber)
 

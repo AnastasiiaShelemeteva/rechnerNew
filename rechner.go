@@ -1,25 +1,10 @@
 package main
 
-import ( 
-	"fmt"
-	"bufio"
-	"os"
-	"strconv"
-)
+import "fmt"
 
-func numbersInput() {
-	var firstNumber float64
-	var secondNumber float64
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
-	
-}
+var choice int
 
 func main() {
-	var choice int
 	fmt.Print(`Welcome in the calculator: 
 	Press (1) to do addition 
 	Press (2) to do subtraction
@@ -29,10 +14,29 @@ func main() {
 	Press (6) to go out of the program
 	Please choose one of the options: `)
 	fmt.Scanln(&choice)
-	input(choice)
+	input()
 }
 
-func input(choice int) {
+func getFirstNumber() float64 {
+	var firstNumber float64
+
+	fmt.Print("Write a number: ")
+	fmt.Scanln(&firstNumber)
+
+	return firstNumber
+
+}
+
+func getSecondNumber() float64 {
+	var secondNumber float64
+
+	fmt.Print("Write a number: ")
+	fmt.Scanln(&secondNumber)
+
+	return secondNumber
+
+}
+func input() {
 	switch choice {
 	case 1:
 		addition()
@@ -54,19 +58,16 @@ func input(choice int) {
 
 func addition() {
 
-	numbersInput()
-
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 	fmt.Println("Here is a addition: ", firstNumber+secondNumber)
 	main()
 }
 
 func subtraction() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
 	fmt.Println("Here is a subtraction: ", firstNumber-secondNumber)
 	main()
@@ -74,11 +75,8 @@ func subtraction() {
 
 func division() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
 	fmt.Println("Here is a division: ", firstNumber/secondNumber)
 	main()
@@ -86,12 +84,9 @@ func division() {
 
 func multiplication() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
-
-	fmt.Print("Here is a multiplication: ", firstNumber*secondNumber)
+	fmt.Println("Here is a multiplication: ", firstNumber*secondNumber)
 	main()
 }
