@@ -3,8 +3,6 @@ package main
 import "fmt"
 
 var choice int
-var firstNumber float64
-var secondNumber float64
 
 func main() {
 	fmt.Print(`Welcome in the calculator: 
@@ -19,6 +17,25 @@ func main() {
 	input()
 }
 
+func getFirstNumber() float64 {
+	var firstNumber float64
+
+	fmt.Print("Write a number: ")
+	fmt.Scanln(&firstNumber)
+
+	return firstNumber
+
+}
+
+func getSecondNumber() float64 {
+	var secondNumber float64
+
+	fmt.Print("Write a number: ")
+	fmt.Scanln(&secondNumber)
+
+	return secondNumber
+
+}
 func input() {
 	switch choice {
 	case 1:
@@ -41,23 +58,16 @@ func input() {
 
 func addition() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
-
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 	fmt.Println("Here is a addition: ", firstNumber+secondNumber)
 	main()
 }
 
 func subtraction() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
 	fmt.Println("Here is a subtraction: ", firstNumber-secondNumber)
 	main()
@@ -65,11 +75,8 @@ func subtraction() {
 
 func division() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
-
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
 	fmt.Println("Here is a division: ", firstNumber/secondNumber)
 	main()
@@ -77,12 +84,9 @@ func division() {
 
 func multiplication() {
 
-	fmt.Print("Write a number: ")
-	fmt.Scanln(&firstNumber)
+	firstNumber := getFirstNumber()
+	secondNumber := getSecondNumber()
 
-	fmt.Print("Write one more number: ")
-	fmt.Scanln(&secondNumber)
-
-	fmt.Print("Here is a multiplication: ", firstNumber*secondNumber)
+	fmt.Println("Here is a multiplication: ", firstNumber*secondNumber)
 	main()
 }
