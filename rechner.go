@@ -13,7 +13,6 @@ func main() {
 	Press (5) to do modulo
 	Press (6) to go out of the program
 	Please choose one of the options: `)
-	fmt.Scanln(&choice)
 	input()
 }
 
@@ -37,6 +36,8 @@ func getSecondNumber() float64 {
 
 }
 func input() {
+	var choice int
+	fmt.Scanln(&choice)
 	switch choice {
 	case 1:
 		addition()
